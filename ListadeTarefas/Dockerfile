@@ -7,8 +7,7 @@ COPY . .
 RUN apt-get install maven -y
 RUN mvn clean install
 
-FROM maven:3.8.5-openjdk-17 AS build
-
+FROM openjdk:17-jdk-slim
 EXPOSE 8080
 
 COPY --from=build /target/ListadeTarefas-0.0.1-SNAPSHOT.jar app.jar
